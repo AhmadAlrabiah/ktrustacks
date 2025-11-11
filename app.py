@@ -314,26 +314,47 @@ def decades_section_log():
     return render_template('decades-log.html', genres=genres, decades=decades, styles=styles, artists=artists, stacks=stacks, username=session["username"])
 
 @app.route('/genres/<genre>')
+# def genre_search(genre):
+#     results = Album.query.filter(Album.genre.like(f"%{genre}%")).all()
+#     songs = [{'title': album.title, 'artist': album.artist, 'id': album.id, 'genre': album.genre, 'image': album.cover_image, 'shelf': album.shelf_label, 'tracklist': album.tracklist, 'style': album.style, 'year': album.year} for album in results]
+#     return jsonify({'songs': songs})
 def genre_search(genre):
-    results = Album.query.filter(Album.genre.like(f"%{genre}%")).all()
-    songs = [{'title': album.title, 'artist': album.artist, 'id': album.id, 'genre': album.genre, 'image': album.cover_image, 'shelf': album.shelf_label, 'tracklist': album.tracklist, 'style': album.style, 'year': album.year} for album in results]
-    return jsonify({'songs': songs})
+    results = Album.query.filter(Album.genre.ilike(f"%{genre.strip()}%")).all()
+    return jsonify({'songs': [
+        {'title': a.title, 'artist': a.artist, 'id': a.id, 'genre': a.genre,
+         'image': a.cover_image, 'shelf': a.shelf_label, 'tracklist': a.tracklist,
+         'style': a.style, 'year': a.year} for a in results
+    ]})
 
 @app.route('/styles/<style>')
+# def style_search(style):
+#     results = Album.query.filter(Album.style.like(f"%{style}%")).all()
+#     print(results)
+#     songs = [{'title': album.title, 'artist': album.artist, 'id': album.id, 'genre': album.genre, 'image': album.cover_image, 'shelf': album.shelf_label, 'tracklist': album.tracklist, 'style': album.style, 'year': album.year} for album in results]
+#     print(songs)
+#     return jsonify({'songs': songs})
 def style_search(style):
-    results = Album.query.filter(Album.style.like(f"%{style}%")).all()
-    print(results)
-    songs = [{'title': album.title, 'artist': album.artist, 'id': album.id, 'genre': album.genre, 'image': album.cover_image, 'shelf': album.shelf_label, 'tracklist': album.tracklist, 'style': album.style, 'year': album.year} for album in results]
-    print(songs)
-    return jsonify({'songs': songs})
+    results = Album.query.filter(Album.style.ilike(f"%{style.strip()}%")).all()
+    return jsonify({'songs': [
+        {'title': a.title, 'artist': a.artist, 'id': a.id, 'genre': a.genre,
+         'image': a.cover_image, 'shelf': a.shelf_label, 'tracklist': a.tracklist,
+         'style': a.style, 'year': a.year} for a in results
+    ]})
 
 @app.route('/artists/<artist>')
+# def artist_search(artist):
+#     results = Album.query.filter(Album.artist.like(f"%{artist}%")).all()
+#     print(results)
+#     songs = [{'title': album.title, 'artist': album.artist, 'id': album.id, 'genre': album.genre, 'image': album.cover_image, 'shelf': album.shelf_label, 'tracklist': album.tracklist, 'style': album.style, 'year': album.year} for album in results]
+#     print(songs)
+#     return jsonify({'songs': songs})
 def artist_search(artist):
-    results = Album.query.filter(Album.artist.like(f"%{artist}%")).all()
-    print(results)
-    songs = [{'title': album.title, 'artist': album.artist, 'id': album.id, 'genre': album.genre, 'image': album.cover_image, 'shelf': album.shelf_label, 'tracklist': album.tracklist, 'style': album.style, 'year': album.year} for album in results]
-    print(songs)
-    return jsonify({'songs': songs})
+    results = Album.query.filter(Album.artist.ilike(f"%{artist.strip()}%")).all()
+    return jsonify({'songs': [
+        {'title': a.title, 'artist': a.artist, 'id': a.id, 'genre': a.genre,
+         'image': a.cover_image, 'shelf': a.shelf_label, 'tracklist': a.tracklist,
+         'style': a.style, 'year': a.year} for a in results
+    ]})
 
 @app.route('/the-stacks/<stack>')
 def stacks_search(stack):
