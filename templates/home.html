@@ -1,0 +1,200 @@
+{% extends 'base.html' %}
+
+{% block content %}
+            <div class="stacks-content">
+                <form id="album-locator" action="/album-locator" method="POST">
+                  <input type="text" id="album-id" placeholder="album barcode" />
+                  <button type="submit" id="album-id-btn">locate</button>
+                </form>
+                <p id="shelf-label"></p>
+                <pre class="stacks">                                                                                                         <span class="v-col-6">-=========</span>|<span class="v-col-7">-===========</span>|<span class="v-col-8">-=========:</span>                        
+                                                                                                         <span class="v-col-6">==========</span>|<span class="v-col-7">============</span>|<span class="v-col-8">==========-</span>                        
+                                                                                                  <span class="v-col-5">:::::</span> <span class="v-col-6">:--::-----</span>|<span class="v-col-7">-----:------</span>|<span class="v-col-8">---:-----:</span><span class="v-col-9">::::::</span>                  
+                                                                                                 <span class="v-col-5">:+==++:</span>                                  <span class="v-col-9">:===+==:</span>                 
+                                                                                                 <span class="v-col-5">:====+:</span>                                  <span class="v-col-9">:===+==:</span>                 
+                   /`````````````\              /```\   /```\                                    <span class="v-col-5">:=++==:</span>          <span class="v-col-15">-------</span> <span class="v-col-18">-----:</span>          <span class="v-col-9">:==++==:</span>                 
+                   |==+:====+--=+|              |=+-|   |===|                                    <span class="v-col-5">:==+==:</span>           <span class="v-col-15">====+=</span>:<span class="v-col-18">=====-</span>          <span class="v-col-9">:===+=+:</span>                 
+   ___        ____ \___:-----:___/ ___________  |--:|   |---|                                    -------          <span class="v-col-15">:=+==+=</span>:<span class="v-col-18">+=++=-</span>          --------                 
+ /=====\    |=====|    |==+==|    |===:=======\ |==-|   |===|                                    <span class="v-col-4">:+====:</span>          <span class="v-col-15">:=+==+=</span>:<span class="v-col-18">==+==-</span>          <span class="v-col-10">:======:</span>                 
+ |=++=+|    |=++==|    |==+==|    |==+:=======| |+=-|   |==+|                                    <span class="v-col-4">:==++=:</span>           <span class="v-col-15">====+=</span>:<span class="v-col-18">==+==-</span>          <span class="v-col-10">:==++=+:</span>                 
+ |-----|    |-----|    |-----|    |---:::::---| |--:|   |---|                                    <span class="v-col-4">:==+==:</span>          ------- -----:          <span class="v-col-10">:==+===:</span>                 
+ |=====|    |====+|    |====+|    |===:    :==| |==-|   |===|                                    <span class="v-col-4">:=+===:</span>           <span class="v-col-16">==+===</span>:<span class="v-col-17">+===+-</span>          <span class="v-col-10">====+==:</span>                 
+ |-----\____/,,,,,/    |-----|    |---:::::___| |--:|   |---|                                    <span class="v-col-4">\_____:</span>          <span class="v-col-16">:===+==</span>:<span class="v-col-17">===+=-</span>          --------                 
+ |=====--===|          |=====|    |===:===/     |==-|   |===|                                                     <span class="v-col-16">===+=+=</span>:<span class="v-col-17">+=+==-</span>          <span class="v-col-11">:======:</span>                 
+ |==+==--=+=|          |==+==|    |==+:===\     |+=-\___/==+|                                                     <span class="v-col-16">==+====</span>:<span class="v-col-17">=+===-</span>          <span class="v-col-11">:===+==:</span>                 
+ |----- ____ `````\    |-----|    |---::::::==| |--::--- ---|                                                      <span class="v-col-16">------</span> <span class="v-col-17">-----:</span>          <span class="v-col-11">:==++==:</span>                 
+ |====+/    \=====|    |====+|    |===|    |==| |==--===:===|                                                                             <span class="v-col-11">:===+=+:</span>                 
+ |=====|    |=====|    |=====|    |===|    |==| \___________/                                                                             <span class="v-col-11">:-=====:</span>                 
+   |=====|    |=====|     `````     |===|    |==|                                                           <span class="v-col-14">/=========</span>|<span class="v-col-13">============</span>|<span class="v-col-12">-=========:</span>                        
+   |=====|    |=====|               |===|    |==|                                                           <span class="v-col-14">|=========</span>|<span class="v-col-13">====+=====+=</span>|<span class="v-col-12">=========+-</span>                        
+   \_____/    \_____/               \___/    \__/                                                           <span class="v-col-14">\--::-----</span>|<span class="v-col-13">-----::-----</span>|<span class="v-col-12">----:---:::</span>                        
+                                                                               
+                                                                               
+                                                               <span class="col-26">/-----------</span>|<span class="col-27">----------\</span>                                  
+                                                                <span class="col-26">|=+==+==+=-=</span>|<span class="col-27">+==+==+==+|</span>                                   
+                                                                <span class="col-26">\---:-------</span>|<span class="col-27">----:-----/</span>                                   
+                                                                               
+                                                                               
+                        <span class="col-24">:---------:</span>|<span class="col-25">---------:</span>           <span class="v-col-1">:----</span> <span class="v-col-2">----:</span><span class="v-col-3">:---</span>                                                                                           
+                        <span class="col-24">-=========-</span>|<span class="col-25">=========-</span>           <span class="v-col-1">:--==</span><span class="v-col-2">=:===</span><span class="v-col-3">--===</span>                                                                                           
+                       <span class="col-23">:::::-</span><span class="col-24">---------::-</span>|<span class=col-25>-------:</span>             <span class="v-col-1">:--==</span><span class="v-col-2">=--::-</span><span class="v-col-3">-- :::</span>                                                 <span class="col-28">:::::</span>          <span class="col-30">----- ------</span>|<span class="col-31">--- ------</span>       
+                       <span class="col-23">-======-</span>                                                <span class="col-1">-=+===:</span>                                           <span class="col-28">|=====|</span>        <span class="col-30">:============</span>|<span class="col-31">-=========:</span>       
+                       <span class="col-23">-==++=+-</span>                                                <span class="col-1">==+==+:</span>                                           <span class="col-28">|=++==|</span>        <span class="col-30">:=++=++==++=+</span>|<span class="col-31">-=+++=++=+:</span>       
+                      <span class="col-23">-==+==-</span>                                                 <span class="col-2">-------</span>                                           <span class="col-28">|==+==|</span>         <span class=col-30>------------</span>|<span class="col-31">----------</span>       
+                  <span class="col-23">===+==-</span>                                                 <span class="col-2">===-+=:</span>                                           <span class="col-28">|==+==|</span>                                   
+                  <span class="col-22">--==--:</span>                                                 <span class="col-2">=-+-==:</span>                                           -------                                   
+                  <span class="col-22">======-</span>                                                 <span class="col-3">-------</span>                                           <span class="col-29">|=====|</span>                                   
+                  <span class="col-22">=====+-</span>                                                 <span class="col-3">==--==:</span>                                           <span class="col-29">|=====|</span>                                   
+                  <span class="col-22">-=+===-</span>                                                 <span class="col-4">=--+=-:</span>                                           <span class="col-29">|=++==|</span>                                   
+                  <span class="col-22">==++==-</span>                                                 <span class="col-4">-------</span>                                           <span class="col-29">|==+==|</span>                                   
+                  <span class="col-22">-=====-</span>                                                 <span class="col-4">==+===:</span>                                           <span class=col-29>|=====|</span>                             <span class="col-32">_____</span> 
+                  <span class="col-21">==-==:</span>                                                  <span class="col-5">===++=:</span>                                            <span class="col-29">:::::</span>                             <span class="col-32">|-----|</span>
+                  <span class="col-21">======-</span>                                                 <span class="col-5">-------</span>                                                                              <span class="col-32">|=====|</span>
+                  <span class="col-21">-=++==-</span>                                                 <span class="col-6">=-==--:</span>                                                                              <span class="col-32">|==+==|</span>
+                  <span class="col-21">==+==+-</span>                                                 <span class="col-6">===--=:</span>                                                                              <span class=col-32>|=++==|</span>
+                  <span class="col-21">=====+-</span>                                                 <span class="col-6">-------</span>                                                                              <span class="col-32">|====+|</span>
+                  <span class="col-21">-----:</span>                                                  <span class="col-7">=-==--:</span>                                                                               <span class="col-32">-----</span> 
+   <span class="col-20">==+===-</span>                                                 <span class="col-7">===-+=:</span>                                                                      
+   <span class="col-20">==+==+-</span>                                                 <span class="col-7">=-==--:</span>                                                                      
+   <span class="col-20">==+==+-</span>                                                 <span class="col-8">===--=:</span>                                                                     
+   <span class="col-20">==+===-</span>                                                 <span class="col-8">==-+=+:</span>                                                                      
+<span class="col-20">:::::::</span> <span class="col-18">--- </span><span class="col-17">----</span><span class="col-16">-::--</span><span class="col-15">- ---</span><span class="col-14">--::-</span><span class="col-13">-- --</span><span class="col-12">- :--</span><span class="col-11">::---</span><span class="col-10"> ---</span><span class="col-9">::---</span> <span class="col-8">:::</span>                                                                       
+     <span class="col-18">-===:</span><span class="col-17">=====</span><span class="col-16">--===</span><span class="col-15">:====</span><span class="col-14">=--==</span><span class="col-13">=:===</span><span class="col-12">:====</span><span class="col-11">:===:</span><span class="col-10">===-</span><span class="col-9">-===</span>                                                                           
+     <span class="col-18">-=+=:</span><span class="col-17">==+==</span><span class="col-16">--+==</span><span class="col-15">:==+=</span><span class="col-14">=--=+</span><span class="col-13">=:==+</span><span class=col-12>:====</span><span class="col-11">:+==-</span><span class="col-10">===-</span><span class=col-9>-=+=</span>                                                                           
+     <span class="col-18">-===:</span><span class="col-17">=====</span><span class="col-16">--===</span><span class="col-15">:====</span><span class="col-14">==--=</span><span class="col-13">=:===</span><span class="col-12">:-==-</span><span class=col-11>:===:</span><span class="col-10">===-</span><span class="col-9">-===</span>                                                                           </pre>
+            </div>
+
+            <script>
+              document.querySelectorAll('[class^="col-"], [class^="v-col-"]').forEach(item => {
+                let hoverElement; // Variable to store the dynamic <p> element
+
+                item.addEventListener('mouseenter', (event) => {
+                    // Determine if the class is "col-X" or "v-col-X"
+                    const match = item.className.match(/(col|v-col)-(\d+)/);
+                    const prefix = match[1]; // "col" or "v-col"
+                    const columnNumber = match[2]; // Extracted number
+
+                    // Highlight the text of all sibling elements with the same column class
+                    const allItems = item.parentElement.querySelectorAll(`.${prefix}-${columnNumber}`);
+                    allItems.forEach(el => {
+                        el.style.color = 'red'; // Highlight text in red
+                        el.style.webkitTextStroke = '0.7px red'; // Add red stroke
+                    });
+
+                    // Create the <p> element for the popup
+                    hoverElement = document.createElement('p');
+                    hoverElement.textContent = prefix === 'col' ? `[Column ${columnNumber}]` : `[Vinyl Column ${columnNumber}]`;
+                    hoverElement.style.position = 'absolute';
+                    hoverElement.style.backgroundColor = 'black'; // Black background
+                    hoverElement.style.color = 'goldenrod'; // Goldenrod text color
+                    hoverElement.style.border = '1px solid darkgoldenrod'; // Darkgoldenrod border
+                    hoverElement.style.padding = '5px'; // Padding for better visibility
+                    hoverElement.style.borderRadius = '5px'; // Rounded corners
+                    hoverElement.style.pointerEvents = 'none'; // Non-interactive
+                    hoverElement.style.zIndex = '1000'; // Ensure it appears on top
+
+                    // Append the hoverElement to the body
+                    document.body.appendChild(hoverElement);
+
+                    // Position the popup directly below the cursor
+                    hoverElement.style.left = `${event.pageX}px`;
+                    hoverElement.style.top = `${event.pageY + 15}px`;
+                });
+
+                item.addEventListener('mousemove', (event) => {
+                    // Update the position of the hoverElement to follow the cursor
+                    if (hoverElement) {
+                        hoverElement.style.left = `${event.pageX}px`;
+                        hoverElement.style.top = `${event.pageY + 15}px`;
+                    }
+                });
+
+                item.addEventListener('mouseleave', () => {
+                    // Remove the popup and reset styles
+                    if (hoverElement) {
+                        hoverElement.remove();
+                        hoverElement = null;
+                    }
+
+                    // Determine if the class is "col-X" or "v-col-X"
+                    const match = item.className.match(/(col|v-col)-(\d+)/);
+                    const prefix = match[1]; // "col" or "v-col"
+                    const columnNumber = match[2]; // Extracted number
+
+                    // Reset the styles of all sibling elements with the same column class
+                    const allItems = item.parentElement.querySelectorAll(`.${prefix}-${columnNumber}`);
+                    allItems.forEach(el => {
+                        el.style.color = ''; // Reset text color
+                        el.style.webkitTextStroke = ''; // Reset text stroke
+                    });
+                });
+            });
+
+            document.getElementById('album-locator').addEventListener('submit', async function (e) {
+                console.log('entered album-locator event listener');
+                e.preventDefault();
+
+                const albumId = document.getElementById('album-id').value;  // Get the album ID from the input field
+                console.log('albumId for locater:', albumId);
+
+                const response = await fetch('/album-locator', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                  },
+                  body: new URLSearchParams({ id: albumId }),  // Send albumId to the server
+                });
+
+                console.log('response:', response);
+
+                if (response.ok) {
+                  const data = await response.json();
+                  const shelfLabel = data.shelf_label[0]['shelf_label'];  // Assuming the response includes the shelf label
+                  console.log(shelfLabel);
+
+                  document.getElementById('shelf-label').textContent = `Shelf Label: ${shelfLabel}`;
+                  console.log('shelf label poop:', shelfLabel);
+
+                  // Regex to check if the shelfLabel is prefixed with 'V.' (case insensitive)
+                  if (shelfLabel[0] === "V") {
+                    console.log("abcdefghj");
+                    const shelf = `v-col-${shelfLabel.slice(2)}`;
+                    const shelfClass = shelf.slice(0, -1);
+                    console.log(shelfClass);
+                    document.querySelectorAll('.stacks .highlight').forEach(el => {
+                      el.classList.remove('highlight');
+                    });
+
+                    const stacks = document.querySelectorAll(`.${shelfClass}`);
+                    stacks.forEach(stack => {
+                      stack.classList.add('highlight');
+                    });
+
+                  } else {
+                    console.log("hgjgjkgjhjg");
+                    const stackNumber = shelfLabel;  // The numeric part after 'V.' or 'V'
+                    const shelf = `col-${shelfLabel.slice(0, -1)}`;
+                    console.log('stack number:', stackNumber);
+
+                    // Clear previous highlights
+                    document.querySelectorAll('.stacks .highlight').forEach(el => {
+                      el.classList.remove('highlight');
+                    });
+
+                    // Determine the stack class based on whether 'V.' was in the shelf label
+                    const stackClass = stackNumber.slice(0, -1);
+                    console.log('stack class:', stackClass);
+
+                    // Find the stack element by class and highlight it
+                    const stacks = document.querySelectorAll(`.${shelf}`);
+                    stacks.forEach(stack => {
+                      stack.classList.add('highlight');
+                    });
+                  }
+                } else {
+                  document.getElementById('shelf-label').textContent = 'Album not found';  // If the album ID isn't found
+                }
+              });
+            </script>
+
+{% endblock content %}

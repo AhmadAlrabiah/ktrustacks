@@ -1,0 +1,803 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+html, body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 15%;
+    border-bottom: 1px goldenrod solid;
+}
+
+.logo-content {
+    background-color: #111111;
+    color: goldenrod;
+    font-family: 'Courier New', monospace;
+    font-size: 40px;
+    font-weight: normal;
+    margin: 0 auto;
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-navigation-content {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 100%;
+}
+
+.profile-content {
+    background-color: #111111;
+    color: goldenrod;
+    font-family: 'Courier New', Courier, monospace;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+}
+
+.profile-content a, 
+.profile-content h4 {
+    margin: 30px;
+    padding: 3px;
+    border: 1px goldenrod solid;
+    border-radius: 3px;
+}
+
+.profile-content a:hover,
+.profile-content h4:hover {
+    background-color: goldenrod;
+    color: black
+} 
+
+.navigation-content {
+    background-color: #111111;
+    color: goldenrod;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: lighter;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    padding-right: 15px;
+}
+
+h2 {
+    margin-left: 25px;
+    margin-right: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: content-box;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin: 0 30px;
+    z-index: 10;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: black;
+    color: goldenrod;
+    font-family: 'Courier New', monospace;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    flex-direction: column;
+    padding: 1-px
+}
+
+.dropdown-content li {
+    color: goldenrod;
+    padding: 10px 0 10px 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: flex;
+    border: 1px goldenrod solid;
+    padding-right: 0;
+}
+
+.dropdown-content li:hover {
+    background-color: goldenrod;
+    color: black;
+}
+
+.main-content {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    width: 100%;
+    height: 80%;
+}
+
+#album-locator {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+#album-id {
+    background-color: black;
+    border: 2px goldenrod solid;
+    color: goldenrod;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 5px;
+    width: 150px;
+}
+
+button[type="submit"] {
+    background: none;
+    border: none;
+    color: goldenrod;
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    text-decoration: underline;
+    width: 68px;
+}
+
+#album-id-btn {
+    background-color: goldenrod;
+    color: black;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#shelf-label {
+    position: absolute;
+    top: 65px;
+    left: 30px;
+    color: goldenrod;
+    font-family:'Courier New', Courier, monospace;
+}
+
+.highlight {
+    color: red;
+    -webkit-text-stroke: 0.7px red;
+}
+
+.stacks-content pre {
+    font-size: 9px;
+    font-weight: 900;
+    color: goldenrod;
+    text-align: center;
+    -webkit-text-stroke: 0.7px goldenrod;
+}
+
+.main-content .search-bar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: black;
+    color: goldenrod;
+    font-family: 'Courier New', Courier, monospace;
+    border: 2px solid goldenrod;
+    padding: 5px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+.search-bar input[type="text"] {
+    background-color: black;
+    color: goldenrod;
+    border: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    padding: 5px;
+    margin-right: 5px;
+    width: 200px;
+    outline: none;
+}
+
+.search-bar button {
+    background-color: goldenrod;
+    color: black;
+    border: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.search-bar button:hover {
+    background-color: black;
+    color: goldenrod;
+    border: 1px solid goldenrod;
+}
+
+
+.dashboard-content {
+    background-color: #111111;
+    color: goldenrod;
+    font-family: 'Courier New', Times, serif;
+    font-weight: 100;
+    width: 20%;
+    height: 100%;
+    display: block;
+    text-align: center;
+}
+
+/* .dashboard-content h1.favorite-title {
+    margin: 10px 4px 4px 4px;
+    padding: 1px;
+    font-weight: 550;
+}
+
+.dashboard-content h1:hover {
+    border: 1px solid goldenrod;
+    border-radius: 5px;
+} */
+
+.track-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#section-list,
+#songs-list {
+    margin-top: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    color: goldenrod;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: start;
+    gap: 10px;
+    padding: 0;
+    overflow-y: auto;
+    max-height: 475px;
+    width: 100%;
+}
+
+#section-list ul,
+#songs-list ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#section-list li,
+#songs-list li {
+    padding: 10px 15px;
+    margin: 10px;
+    background-color: black;
+    color: goldenrod;
+    border: 2px solid goldenrod;
+    border-bottom: 1px solid goldenrod;
+    cursor: pointer;
+}
+
+#songs-list li {
+    width: calc(33.33% - 10px);
+}
+
+#section-list li:hover,
+#songs-list li:hover {
+    background-color: darkgoldenrod;
+    color: black;
+}
+
+#songs-list ul li:hover {
+    color: black;
+}
+
+#section-list::-webkit-scrollbar,
+#songs-list::-webkit-scrollbar {
+    width: 12px;
+}
+
+
+#section-list::-webkit-scrollbar-thumb,
+#songs-list::-webkit-scrollbar-thumb {
+    background-color: goldenrod;
+    border-radius: 10px;
+}
+
+#section-list::-webkit-scrollbar-thumb:hover,
+#songs-list::-webkit-scrollbar-thumb:hover {
+    background-color: darkgoldenrod; 
+}
+
+#section-list::-webkit-scrollbar-track,
+#songs-list::-webkit-scrollbar-track {
+    background-color: #333333;
+    border-radius: 10px;
+}
+
+.stacks-content, .section-content {
+    background-color: black;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.section-content {
+    color: goldenrod;
+    position: relative;
+    padding: 20px;
+}
+
+.profile-content p,
+.profile-content a {
+    color: goldenrod;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+/* Card container styling */
+#songs-list-ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Increased gap for better spacing */
+    padding: 20px;
+    list-style-type: none;
+    margin: 0;
+    width: 100%;
+}
+
+/* Individual song card styling */
+#songs-list-ul li {
+    display: flex;
+    align-items: center;
+    border: 2px solid #ffcc00; /* Golden border */
+    border-radius: 10px;
+    background-color: #111; /* Dark background */
+    padding: 15px;
+    width: 30%; /* Three cards per row with space */
+    max-width: 350px; /* Maximum width for the card */
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+/* Add hover effect */
+#songs-list-ul li:hover {
+    transform: translateY(-10px); /* Slight lift */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+}
+
+/* Image styling */
+#songs-list-ul li img {
+    width: 80px; /* Slightly larger image */
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+/* Song details container */
+#songs-list-ul li div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+/* Title and artist text styling */
+#songs-list-ul li .title-artist {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+/* Genre and shelf text styling */
+#songs-list-ul li .genre-shelf,
+#songs-list-ul li .style-shelf {
+    font-size: 0.9em;
+    color: #fff; /* Lighter color for the genre and shelf */
+    margin-top: 5px;
+}
+
+.dashboard-content {
+    overflow: auto;
+}
+
+.dashboard-content h1 {
+    position:static;
+}
+
+#favorite-list {
+    overflow: auto;
+
+}
+
+.title,
+.artist {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#favorite-songs-list-ul {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+#favorite-songs-list-ul li {
+    border: 1px goldenrod solid;
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    border-radius: 5px;
+}
+
+#favorite-songs-list-ul li img {
+    width: 20px; /* Slightly larger image */
+    height: 20px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+#favorite-songs-list-ul li .title-artist {
+    font-size: 10px;
+    font-weight: bold;
+    color: goldenrod;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+.modal-header p {
+    color: black;
+    background-color: goldenrod;
+    border-radius: 3px;
+    margin-bottom: 2px;
+    width: 175px;
+    justify-content: center;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.modal-header p:hover {
+    color: goldenrod;
+    background-color: black;
+    border: 1px goldenrod solid;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 5%;
+}
+
+.footer-content {
+    background-color: #111111; 
+    border-top: 1px goldenrod solid;
+    color: goldenrod;
+    font-family: 'Courier New', Courier, monospace;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: end;
+}
+
+.abc:hover,
+.abc:hover + .abc {
+    color: red;
+    -webkit-text-stroke: 0.7px red;
+}
+
+
+#login-modal {
+    display: none;
+    font-family:'Courier New', Courier, monospace;
+    position: fixed;
+    top: 50px;
+    right: 20px; /* Positioned in the top-right corner */
+    background-color: black;
+    color: goldenrod;
+    border: 2px solid goldenrod;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 250px; /* Smaller modal size */
+    z-index: 1000;
+  }
+  
+  #login-modal form {
+    display: flex;
+    flex-direction: column;
+    font-family:'Courier New', Courier, monospace;
+    gap: 10px;
+  }
+
+  #create-playlist-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  #playlist-input-field {
+    width: 40%;
+    background-color: black;
+    border: 1px goldenrod solid;
+    font-family:'Courier New', Courier, monospace;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding-left: 6px;
+    color: goldenrod;
+  }
+
+  #playlist-create-btn {
+    width: 17%;
+    --font-size: 15px;
+    margin-bottom: 5px;
+  }
+
+  .playlist-title {
+    width: 80%;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.95em;
+    font-weight: 550;
+  }
+
+  .add-playlist {
+    width: 10%;
+    font-size: 20px;
+    margin: 0 auto;
+    margin-top: 11px;
+    align-items: center;
+    padding-top: 4px;
+  }
+
+  .playlist-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  #playlist-list li {
+    font-size: 20px;
+  }
+
+  #create-playlist-modal {
+    display: block;
+  }
+  
+  .input-field {
+    padding: 8px; /* Smaller input fields */
+    font-size: 14px;
+    border: 2px solid goldenrod;
+    font-family:'Courier New', Courier, monospace;
+    border-radius: 5px;
+    background-color: black;
+    color: goldenrod;
+    outline: none;
+  }
+  
+  .input-field::placeholder {
+    color: goldenrod;
+    font-family:'Courier New', Courier, monospace;
+    opacity: 0.8;
+  }
+  
+  .button-group {
+    display: flex;
+    font-family:'Courier New', Courier, monospace;
+    justify-content: space-between; /* Align buttons next to each other */
+    gap: 5px;
+  }
+  
+  .btn-login {
+    padding: 5px 10px; /* Smaller buttons */
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    background-color: goldenrod;
+    font-family:'Courier New', Courier, monospace;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-login:hover {
+    background-color: #daa520;
+    font-family:'Courier New', Courier, monospace;
+  }
+  
+  .btn-login:active {
+    background-color: #b8860b;
+    font-family:'Courier New', Courier, monospace;
+  }
+  
+.footer-content h4 {
+    margin-bottom: 5px;
+    font-family:'Courier New', Courier, monospace;
+}
+
+/* Highlight the active tab */
+.active {
+    background-color: goldenrod;
+    color: black;
+}
+
+/* Modal styling */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    border: 2px darkgoldenrod solid;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.modal-content {
+    background-color: black;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 800px;
+    max-height: 400px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: auto;
+    border: 2px darkgoldenrod solid;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-header {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.modal-header h2 {
+    margin: 0;
+    padding-left: 0;
+    font-size: 1.8rem;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.modal-left {
+    flex: 1;
+    max-width: 40%;
+    max-height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-left img {
+    max-width: 175px;
+    height: 175px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.modal-right {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: auto;
+}
+
+.modal-right p {
+    margin-bottom: 10px;
+}
+
+#modal-album-tracklist {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+}
+
+#modal-album-tracklist li {
+    text-align: left;
+    margin: 5px 0;
+    overflow: auto;
+}
+
+.page {
+    all: unset; /* Resets all styles, including default button styles */
+    font: inherit; /* Matches the surrounding font */
+    color: inherit; /* Matches the surrounding text color */
+    margin: 0; /* Removes default margin if any */
+    padding: 0; /* Removes default padding */
+    text-align: start; /* Ensures text alignment matches a <p> */
+    line-height: 1.5; /* Mimics typical paragraph spacing */
+    padding: 5px 10px;
+    border: 1px goldenrod solid;
+    border-radius: 3px;
+    margin-top: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.page:hover {
+    all: unset; /* Resets all styles, including default button styles */
+    font: inherit; /* Matches the surrounding font */
+    color: inherit; /* Matches the surrounding text color */
+    margin: 0; /* Removes default margin if any */
+    padding: 0; /* Removes default padding */
+    text-align: start; /* Ensures text alignment matches a <p> */
+    line-height: 1.5; /* Mimics typical paragraph spacing */
+    padding: 5px 10px;
+    border: 1px goldenrod solid;
+    color: black;
+    background-color: goldenrod;
+    border-radius: 3px;
+    margin-top: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
