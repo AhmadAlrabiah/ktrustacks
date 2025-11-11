@@ -2,23 +2,19 @@ from flask import Flask, request, render_template, jsonify, url_for, request, re
 from flask_sqlalchemy import SQLAlchemy
 from lists import genres, styles, stacks, artists, decades
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask import current_app
+import os
 
 app = Flask(__name__)
 app.secret_key = "noasis"
 
+# use to run locally
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///../albums.db'
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:////tmp/albums.db"
+
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
+app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {"pool_pre_ping": True}
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
-
-try:
-    with app.app_context():
-        db.create_all()
-except Exception as e:
-    print("DB init at import failed:", e)
-
 
 user_favorites = db.Table('user_favorites',
     db.Column('user_id', db.Integer, db.ForeignKey('user.id'), primary_key = True),
