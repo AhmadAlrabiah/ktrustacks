@@ -1,5 +1,4 @@
-from app import app
+from app import app, db
 
 with app.app_context():
-    from app import db
     db.create_all()
